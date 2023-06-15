@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Galactic">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=DSTEVENSONWIN10\SQL_2019;Initial Catalog=Galactic</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>95d19188-2d46-4b2e-9d4c-0a40516bc263</DataSourceID>
+</RptDataSource>
