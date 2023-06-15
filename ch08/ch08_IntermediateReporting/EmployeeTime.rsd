@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description />
+  <DataSet Name="EmployeeTime">
+    <Query>
+      <DataSourceReference>Galactic</DataSourceReference>
+      <CommandText>SELECT Description AS Job, e.EmployeeNumber, FirstName, LastName, CONVERT(char(4), 
+	DATEPART(yy, WorkDate)) + '-' + CONVERT(char(2), DATEPART(wk, WorkDate)) AS Week,
+	WorkDate, HoursWorked
+FROM TimeEntry te
+	INNER JOIN Assignment a
+		ON te.AssignmentID = a.AssignmentID 
+	INNER JOIN Employee e
+		ON a.EmployeeNumber = e.EmployeeNumber
+	INNER JOIN Job j
+		ON a.JobID = j.JobID
+ORDER BY Job, e.EmployeeNumber, Week, WorkDate</CommandText>
+      <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+    </Query>
+    <Fields>
+      <Field Name="Job">
+        <DataField>Job</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmployeeNumber">
+        <DataField>EmployeeNumber</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="FirstName">
+        <DataField>FirstName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="LastName">
+        <DataField>LastName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Week">
+        <DataField>Week</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="WorkDate">
+        <DataField>WorkDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="HoursWorked">
+        <DataField>HoursWorked</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
